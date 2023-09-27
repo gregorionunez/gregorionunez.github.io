@@ -1,4 +1,4 @@
-const corazon = document.getElementById("corazon");
+const corazon = document.getElementById("barra-lateral-activar");
 const barraLateral = document.querySelector(".barra-lateral"); //Obtenemos la referencia al primer elemento que coincida con ".barra-lateral"
 const spans = document.querySelectorAll("span"); //Obtenemos la referencia de todos los elementos que coincida con "span"
 const palanca = document.querySelector(".switch");
@@ -25,10 +25,11 @@ palanca.addEventListener("click",()=>{
 })
 
 
-corazon.addEventListener("click",()=>{
+corazon.addEventListener("click",(event)=>{
+    if (event.target.classList.contains("barra-lateral-activar")) {
     barraLateral.classList.toggle("mini-barra-lateral"); //Agrega clase si no la tiene
     main.classList.toggle("min-main");
     spans.forEach((span) => { //ForEach para recorrer todos los span
         span.classList.toggle("oculto"); //Agrega clase si no la tiene
     });
-})
+}})
